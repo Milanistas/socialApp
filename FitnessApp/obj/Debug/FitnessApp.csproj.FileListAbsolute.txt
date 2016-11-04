@@ -1,0 +1,10 @@
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\FitnessApp.dll.config
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\FitnessApp.dll
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\FitnessApp.pdb
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\obj\Debug\FitnessApp.csprojResolveAssemblyReference.cache
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\obj\Debug\FitnessApp.dll
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\obj\Debug\FitnessApp.pdb
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.dll
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.SqlServer.dll
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.xml
+c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.SqlServer.xml

@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FitnessApp.MasterPages.Site" %>
+
+<%@ Register Src="~/UserControl/BreadCrumb.ascx" TagPrefix="uc1" TagName="BreadCrumb" %>
+<%@ Register Src="~/UserControl/login.ascx" TagPrefix="uc1" TagName="login" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/Static/m.js"></script>
+</head>
+<body <%--onkeydown="return (event.keyCode!=13);"--%>>
+
+    <asp:ContentPlaceHolder ID="menu" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <div class="jumbotron" style="width: auto; height: 10px">
+        <uc1:BreadCrumb runat="server" ID="BreadCrumb" />
+    </div>
+    <form runat="server" id="form">
+        <% foreach (var item in GetFriend())
+           {%>
+        <div style="height: 70px;">
+            <a href="/Views/my-profile/Profile.aspx?Guid=<%=item.Guid %>">
+                <img width="50" height="50" src="<%=item.ProfileImage %>" />
+                <%=item.FirstName %></a>
+        </div>
+        <%} %>
+
+        <% if (!Context.User.Identity.IsAuthenticated)
+           { %>
+        <uc1:login runat="server" ID="login" />
+        <% } %>
+        <%
+           else
+           { %>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+        <% } %>
+    </form>
+
+</body>
+</html>

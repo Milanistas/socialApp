@@ -1,0 +1,19 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BreadCrumb.ascx.cs" Inherits="FitnessApp.UserControl.BreadCrumb" %>
+<asp:Repeater runat="server" ID="rep">
+    <ItemTemplate>
+
+
+
+        <% if (LastJ - 1 == K)
+           { %>
+        <a style="text-decoration: none" href="<%#Eval("Value") %>">&nbsp;<%#Eval("Key") %>&nbsp;</a>
+        <% K++;
+           } %>
+        <%
+           else
+           { %>
+        <a style="text-decoration: none" href="<%#Eval("Value") %>">&nbsp;<%#Eval("Key") %>&nbsp;</a> /
+        <% K++;
+           } %>
+    </ItemTemplate>
+</asp:Repeater>
