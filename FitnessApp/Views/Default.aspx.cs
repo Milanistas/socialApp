@@ -30,7 +30,13 @@ namespace FitnessApp.Views
             //}
             //file.AllowMultiple = true;
         }
-
+        public string GetR
+        {
+            get
+            {
+                return Request.QueryString["Guid"];
+            }
+        }
         //public IEnumerable<string> GetImage()
         //{
             //var img = new List<KeyValuePair<int, string>>();
@@ -72,14 +78,6 @@ namespace FitnessApp.Views
         public object GetMonthName(int number)
         {
             return new DateTime(DateTime.UtcNow.Year, number, 1).ToString("MMMM", CultureInfo.CurrentCulture);
-        }
-
-        public string GetR
-        {
-            get
-            {
-                return Request.QueryString["Guid"];
-            }
         }
     }
 
