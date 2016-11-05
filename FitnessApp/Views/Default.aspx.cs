@@ -73,7 +73,16 @@ namespace FitnessApp.Views
         {
             return new DateTime(DateTime.UtcNow.Year, number, 1).ToString("MMMM", CultureInfo.CurrentCulture);
         }
+
+        public string GetR
+        {
+            get
+            {
+                return Request.QueryString["Guid"];
+            }
+        }
     }
+
 
     enum Months
     {

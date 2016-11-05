@@ -15,7 +15,7 @@
     </div>
 
     <div style="width: 100px; margin: 0 auto">
-        <a href="/Views/my-profile/Settings.aspx?Id=<%=GetR%>">
+        <a href="/Views/my-profile/Settings.aspx?guid=<%=GetR%>">
             <asp:Image CssClass="img-circle img-responsive" Style="border: 2px lightgray solid; margin: 0 auto;" Width="100" Height="100" runat="server" ID="ProfileImg" /></a>
     </div>
 

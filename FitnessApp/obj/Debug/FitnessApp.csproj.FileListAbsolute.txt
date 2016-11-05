@@ -8,3 +8,13 @@ c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\b
 c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.SqlServer.dll
 c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.xml
 c:\users\ac-mi_000\documents\visual studio 2013\Projects\FitnessApp\FitnessApp\bin\EntityFramework.SqlServer.xml
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\FitnessApp.dll.config
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\FitnessApp.dll
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\FitnessApp.pdb
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\EntityFramework.dll
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\EntityFramework.SqlServer.dll
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\EntityFramework.xml
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\bin\EntityFramework.SqlServer.xml
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\obj\Debug\FitnessApp.csprojResolveAssemblyReference.cache
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\obj\Debug\FitnessApp.dll
+C:\Users\ac-mi_000\Documents\socialApp\FitnessApp\obj\Debug\FitnessApp.pdb

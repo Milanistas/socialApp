@@ -6,13 +6,13 @@
 
         <% if (LastJ - 1 == K)
            { %>
-        <a style="text-decoration: none" href="<%#Eval("Value") %>">&nbsp;<%#Eval("Key") %>&nbsp;</a>
+        &nbsp;<%#Eval("Key") %>&nbsp;
         <% K++;
            } %>
         <%
            else
            { %>
-        <a style="text-decoration: none" href="<%#Eval("Value") %>">&nbsp;<%#Eval("Key") %>&nbsp;</a> /
+        <a style="text-decoration: none" href="<%#Eval("Value") + "?guid=" + Request.QueryString["guid"] %>">&nbsp;<%#Eval("Key")  %>&nbsp;</a> /
         <% K++;
            } %>
     </ItemTemplate>

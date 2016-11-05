@@ -26,9 +26,6 @@ namespace FitnessApp.UserControl
 
         public void Logon_Click(object sender, EventArgs e)
         {
-            //if ((UserEmail.Text == "mm") &&
-            //        (UserPass.Text == "123"))
-            //{ 
             using (var m = new DataContext())
             {
                 var o = m.Registers.Where(x => x.FirstName == UserEmail.Text && x.CryptPassWord == UserPass.Text);
@@ -36,36 +33,18 @@ namespace FitnessApp.UserControl
                 {
                     Response.Cookies.Add(new HttpCookie(o.First().FirstName, o.First().Guid.ToString()));
 
+                    var builder = new UriBuilder(Request.Url);
+                    var query = HttpUtility.ParseQueryString(builder.Query);
+                    query["guid"] = o.First().Guid.ToString();
+                    query.Remove("ReturnUrl");
+                    builder.Query = query.ToString();
+                    string url = builder.ToString();
+
                     FormsAuthentication.SetAuthCookie(UserEmail.Text, Persist.Checked);
-                    var q = Request.QueryString["ReturnUrl"];
-                    if (q.Equals("/"))
-                        q = q.Replace("/", "/Views");
-                    var Encode = HttpUtility.HtmlEncode(q);
 
-                    //using (var m = new DataContext())
-                    //{
-                    //    var o = m.Registers.Where(x => x.FirstName == UserEmail.Text);
-                    //    if (o.Any())
-                    //    {
-                    //        //var p = o.First().Guid.ToString();
-                    //        //var ä = p.ToList().RemoveAll(c=> c == '-');
-                    //        //var arr = Convert.FromBase64String(p);
-                    //        //var cookie = new HttpCookie("myGuid",
-                    //        //Convert.ToBase64String(ProtectedData.Protect(arr, null,
-                    //        //    DataProtectionScope.CurrentUser))) {Expires = DateTime.Now.AddDays(7)};
-                    //        //Response.Cookies.Add(p);
-                    //    }
-                    //}
-
-                    Response.Redirect(Encode);
-                }
-                else
-                {
-                    Msg.Text = "Invalid credentials. Please try again.";
+                    Response.Redirect(url);
                 }
             }
-            //}
-            
         }
     }
 }

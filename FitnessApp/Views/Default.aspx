@@ -54,7 +54,7 @@
 
 
                 <div style="margin-left: 20px">
-                    <a href="Details.aspx?id=<%=id++ %>&day=<%=HttpUtility.UrlEncode(item.Substring(3)) %>&month=<%=GetMonthName(i) %>&nday=<%=item.Substring(0, 2).Replace(".", "") %>" class="col-xs-12 col-sm-12 col-md-12 btn btn-info" style="text-align: left; width: 150px; height: 100px; margin-right: 15px; padding-bottom: 65px; margin-bottom: 10px"><%= item %> </a>
+                    <a href="Details.aspx?guid=<%=GetR %>&id=<%=id++ %>&day=<%=HttpUtility.UrlEncode(item.Substring(3)) %>&month=<%=GetMonthName(i) %>&nday=<%=item.Substring(0, 2).Replace(".", "") %>" class="col-xs-12 col-sm-12 col-md-12 btn btn-info" style="text-align: left; width: 150px; height: 100px; margin-right: 15px; padding-bottom: 65px; margin-bottom: 10px"><%= item %> </a>
                 </div>
                 <%--<textarea wrap="hard" class="col-xs-5 col-md-2 btn btn-form" style="resize: none; white-space: normal; padding-right: -30px; text-align: left; width: auto; border: 1px solid lightgray; height: 80px"></textarea>--%>
 
