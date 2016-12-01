@@ -14,6 +14,7 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FitnessApp.UserControl;
 using Image = System.Drawing.Image;
 
 namespace FitnessApp.Views
@@ -23,19 +24,7 @@ namespace FitnessApp.Views
         protected bool MonthBegun = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //file.Visible = false;
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    file.Visible = true;
-            //}
-            //file.AllowMultiple = true;
-        }
-        public string GetR
-        {
-            get
-            {
-                return Request.QueryString["Guid"];
-            }
+   
         }
         //public IEnumerable<string> GetImage()
         //{

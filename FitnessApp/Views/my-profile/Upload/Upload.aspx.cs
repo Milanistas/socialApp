@@ -12,18 +12,37 @@ namespace FitnessApp.Views.my_profile.Upload
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var req = Request.QueryString["id"];
-            if (!string.IsNullOrEmpty(req))
+        }
+
+        public IEnumerable<Models.Upload> GetUpload()
+        {
+            int reqId;
+            int.TryParse(Request.QueryString["id"], out reqId);
+            using (var context = new DataContext())
             {
-                int i;
-                var p = new DataContext();
-                int.TryParse(req, out i);
-                var First = p.Uploads.FirstOrDefault(x => x.Id == i);
-                if (First != null)
-                {
-                    Response.Write(First.Comm);
-                }
-                p.Dispose();
+                return context.Uploads.Where(x => x.Id == reqId).ToList();
+            }
+        }
+
+        public IEnumerable<Models.Comment> GetComment()
+        {
+            int reqId;
+            int.TryParse(Request.QueryString["id"], out reqId);
+            using (var context = new DataContext())
+            {
+                return context.Comments.Where(x => x.Upload.Id == reqId).ToList();
+            }
+        }
+
+        public void SaveComment(object o, EventArgs e)
+        {
+            int reqId;
+            int.TryParse(Request.QueryString["id"], out reqId);
+            using (var context = new DataContext())
+            {
+                var upload = context.Uploads.FirstOrDefault(x => x.Id == reqId);
+                context.Comments.Add(new Comment {PostedComment = comm.Text, Upload = upload});
+                context.SaveChanges();
             }
         }
     }

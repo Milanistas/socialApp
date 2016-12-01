@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="login.ascx.cs" Inherits="FitnessApp.UserControl.login" %>
+<%@ Register Src="~/UserControl/Register.ascx" TagPrefix="uc1" TagName="Register" %>
+
 <h3>Logon Page</h3>
 <table>
     <tr>
@@ -6,11 +8,7 @@
         <td>
             <asp:TextBox ID="UserEmail" runat="server" /></td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
-                ControlToValidate="UserEmail"
-                Display="Dynamic"
-                ErrorMessage="Cannot be empty."
-                runat="server" />
+            
         </td>
     </tr>
     <tr>
@@ -20,10 +18,7 @@
                 runat="server" />
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
-                ControlToValidate="UserPass"
-                ErrorMessage="Cannot be empty."
-                runat="server" />
+            
         </td>
     </tr>
     <tr>
@@ -37,3 +32,5 @@
 <p>
     <asp:Label ID="Msg" ForeColor="red" runat="server" />
 </p>
+
+<uc1:Register runat="server" id="Register" />

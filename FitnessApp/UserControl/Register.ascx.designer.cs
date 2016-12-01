@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FitnessApp.Views.my_profile.Upload {
+namespace FitnessApp.UserControl {
     
     
-    public partial class Upload {
+    public partial class Register {
         
         /// <summary>
-        /// comm control.
+        /// fName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comm;
+        protected global::System.Web.UI.WebControls.TextBox fName;
         
         /// <summary>
-        /// Save control.
+        /// pass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Save;
+        protected global::System.Web.UI.WebControls.TextBox pass;
+        
+        /// <summary>
+        /// text control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label text;
     }
 }

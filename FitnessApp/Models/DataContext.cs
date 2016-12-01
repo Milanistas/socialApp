@@ -18,6 +18,9 @@ namespace FitnessApp.Models
 
         public DbSet<Upload> Uploads { get; set; }
 
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Media> Media { get; set; }
         //public DbSet<WorkItems> WorkItems { get; set; } 
     }
 }

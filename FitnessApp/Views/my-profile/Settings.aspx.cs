@@ -18,17 +18,14 @@ namespace FitnessApp.Views
         {
             get { return Request.QueryString["Id"]; }
         }
-        public string GetR { get { return Request.QueryString["Guid"]; } }
         protected void Page_Load(object sender, EventArgs e)
         {
             p.Visible = true;
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(GetR))
-                {
                     var w = new DataContext();
 
-                    var profi = w.Registers.FirstOrDefault(x => x.Guid.ToString() == GetR);
+                    var profi = w.Registers.FirstOrDefault(x => x.FirstName.ToString() == User.Identity.Name);
 
                     if (profi != null)
                     {
@@ -36,7 +33,6 @@ namespace FitnessApp.Views
                         firstName.Text = profi.FirstName ?? "";
                     }
                     w.Dispose();
-                }
             }
 
             if (string.IsNullOrEmpty(ProfileImg.ImageUrl))
@@ -58,29 +54,28 @@ namespace FitnessApp.Views
 
             using (var w = new DataContext())
             {
-                //w.Register.Add(w.Profile.Where(x=>x.Register.))
+                //var reg = new Models.Register
+                //{
+                //    FirstName = User.Identity.Name,
+                //    CryptPassWord = "123",
+                //    Guid = Guid.NewGuid(),
+                //    ProfileImage = ProfileImg.ImageUrl
+                //};
 
-                var reg = new Models.Register
-                {
-                    FirstName = "mm",
-                    CryptPassWord = "123",
-                    Guid = Guid.NewGuid(),
-                    ProfileImage = ProfileImg.ImageUrl
-                };
+                //var pro = new Profile
+                //{
+                //    Register = reg
+                //};
 
-                var pro = new Profile
-                {
-                    Register = reg
-                };
+                //w.Profiles.AddOrUpdate(pro);
+                //w.SaveChanges();
 
-                w.Profiles.AddOrUpdate(pro);
-                w.SaveChanges();
-
-                var k = w.Registers.FirstOrDefault(x => x.Guid.ToString() == GetR);
+                var k = w.Registers.FirstOrDefault(x => x.FirstName == User.Identity.Name);
                 if (k != null)
                 {
                     k.ProfileImage = ProfileImg.ImageUrl;
                     w.Registers.AddOrUpdate(k);
+                    w.SaveChanges();
                 }
             }
         }

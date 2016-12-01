@@ -14,17 +14,28 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
     <script src="/Static/m.js"></script>
 </head>
 <body <%--onkeydown="return (event.keyCode!=13);"--%>>
 
-    <asp:ContentPlaceHolder ID="menu" runat="server">
-    </asp:ContentPlaceHolder>
 
-    <div class="jumbotron" style="width: auto; height: 10px">
-        <uc1:BreadCrumb runat="server" ID="BreadCrumb" />
-    </div>
     <form runat="server" id="form">
+        <asp:ContentPlaceHolder ID="menu" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <div class="jumbotron" style="width: auto; height: 10px">
+            <uc1:BreadCrumb runat="server" ID="BreadCrumb" />
+        </div>
+
+        <asp:TextBox runat="server" ID="SearchText" CssClass="btn btn-form SearchText" Style="width: 150px; border: 1px lightgray solid; cursor: default"></asp:TextBox>
+        <asp:Button runat="server" ID="Search" Text="Search" OnClick="SearchClick" CssClass="btn btn-default SearchClick" />
+        
+        <div align="right">
+            <%=HttpContext.Current.User.Identity.Name %>
+            <asp:Button runat="server" ID="LogOut" Text="Log Out" OnClick="LogOut_OnClick" CssClass="btn btn-default" />
+        </div>
+
         <% foreach (var item in GetFriend())
            {%>
         <div style="height: 70px;">
@@ -44,7 +55,7 @@
         <asp:ContentPlaceHolder ID="body" runat="server">
         </asp:ContentPlaceHolder>
         <% } %>
-    </form>
+    </form>                         
 
 </body>
 </html>

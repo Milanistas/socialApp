@@ -6,16 +6,8 @@
 </asp:Content>--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
-    <div align="left" style="width: 450px; height: auto;">
-        <h2>Picture</h2>
-        <% foreach (var item in GetImgUploads().Take(9))
-           {%>
-        <img src="<%=item.UpImg %>" alt="<%=item.UpImg %>" height="120" width="120" style="margin-bottom: 10px;" />
-        <% } %>
-    </div>
-
     <div style="width: 100px; margin: 0 auto">
-        <a href="/Views/my-profile/Settings.aspx?guid=<%=GetR%>">
+        <a href="/Views/my-profile/Settings.aspx">
             <asp:Image CssClass="img-circle img-responsive" Style="border: 2px lightgray solid; margin: 0 auto;" Width="100" Height="100" runat="server" ID="ProfileImg" /></a>
     </div>
 
@@ -31,34 +23,43 @@
             <span id="file"></span>
         </div>
     </div>
+    
+    <div align="left" style="width: 450px; height: auto;">
+        <h2>Picture</h2>
+        <% foreach (var item in GetImgUploads().Take(9))
+           {%>
+        <img src="<%=item.UpImg %>" alt="<%=item.UpImg %>" height="120" width="120" style="margin-bottom: 10px;" />
+        <% } %>
+    </div>
 
-    <h2 style="text-align: center">kommentar</h2>
+    <h2 style="text-align: center">Inlägg</h2>
 
     <asp:Repeater runat="server" ID="rep">
         <ItemTemplate>
             <div class="container jumbotron" style="max-width: 100%; width: 520px; border-radius: 10px;">
-                <asp:Button runat="server" Style="float: right" CommandArgument='<%#Eval("Id") %>' Text="Remove" OnClick="Remove" />
-                <img width="70" class="img-responsive img-circle" alt="<%#Eval("Register.ProfileImage") %>" src="<%#Eval("Register.ProfileImage") %>" />
-                <%--   <button type="button" style="float: right" class="btn btn-default btn-sm Remove-button">
-                    <span class="glyphicon glyphicon-remove-sign"></span>
-                    Remove
-                </button>--%>
+                <asp:Button runat="server" Style="float: right" CssClass="btn btn-form" CommandArgument='<%#Eval("Id") %>' Text="Remove" OnClick="Remove" />
+                <h3><img width="70" class="img-circle" alt="<%#Eval("Register.ProfileImage") %>" src="<%#Eval("Register.ProfileImage") %>" />
+                    <%#Eval("Register.FirstName") %></h3>
                 <div class="form-group">
                     <br />
                     <div id="w" style="width: 500px; max-width: 100%; word-wrap: break-word; height: auto;" class="col-md-4 col-sm-3 col-xs-5 form-control">
+                        <%#Eval("Comm")%>
                         <div class="UpImg">
                             <img style="width: 150px; height: 170px; max-width: 100%" src="<%#Eval("UpImg") %>" />
                         </div>
-                        <%#Eval("Comm")%>
                     </div>
                 </div>
                 <button type="button" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-thumbs-up"></span>
                     Like
                 </button>
-                <a href="Upload/Upload.aspx?id=<%#Eval("id") %>" type="button" class="btn btn-default btn-sm">
+                <a id="copy" data-clipboard-target="#shortlink" type="button" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-share"></span>
                     Share
+                </a>
+                <a id="shortlink" href="Upload/Upload.aspx?id=<%#Eval("id") %>" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-comment"></span>
+                    Comment
                 </a>
                 <span style="float: right"><%#Eval("CommDate") %></span>
             </div>
@@ -66,6 +67,11 @@
     </asp:Repeater>
 
     <script>
+
+        (function () {
+            new Clipboard('#copy');
+        })();
+
         var UpImg = $(".UpImg img");
         for (var i = 0; i < UpImg.length; i++) {
             var current = UpImg[i];
